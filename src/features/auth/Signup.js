@@ -4,6 +4,7 @@ import { signup } from "./authActions";
 import { NavLink, Navigate, useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
 import axios from "axios";
+import { base } from "../../api";
 
 const Signup = () => {
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ const Signup = () => {
     try {
       dispatch(signup(formData));
       alert("Signup Successful");
-      const response = await axios.get("http://localhost:8080/user");
+      const response = await axios.get(`${base}/user`);
       console.log(response);
       navigate("/users", { state: response.data });
     } catch (error) {

@@ -4,8 +4,9 @@ import { useLocation } from "react-router-dom";
 import Cookies from "universal-cookie";
 import io from "socket.io-client";
 import ChatBox from "../../component/ChatBox";
+import { base } from "../../api";
 
-const socket = io("http://192.168.137.1:8080");
+const socket = io(base);
 
 function Users() {
   const location = useLocation();
@@ -35,13 +36,10 @@ function Users() {
   useEffect(() => {
     const fetchChats = async () => {
       try {
-        const response = await axios.post(
-          "http://localhost:8080/feed/getChats",
-          {
-            receiver: selectedUser?._id,
-            token: token,
-          }
-        );
+        const response = await axios.post(`${base}/feed/getChats`, {
+          receiver: selectedUser?._id,
+          token: token,
+        });
         setChatMessages(response.data[0]?.messages || []);
         setchatid(response.data[0]._id);
         scrollToBottom();
@@ -65,7 +63,7 @@ function Users() {
       scrollToBottom();
     }
     try {
-      await axios.post("http://localhost:8080/feed", {
+      await axios.post(`${base}/feed`, {
         receiver: selectedUser?._id,
         senderName: name,
         token: token,
