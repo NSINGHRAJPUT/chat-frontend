@@ -5,7 +5,7 @@ import Cookies from "universal-cookie";
 import io from "socket.io-client";
 import ChatBox from "../../component/ChatBox";
 
-const socket = io("http://localhost:8080");
+const socket = io("http://192.168.137.1:8080");
 
 function Users() {
   const location = useLocation();
