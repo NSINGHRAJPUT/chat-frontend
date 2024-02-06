@@ -1,1 +1,1 @@
-export const base = "http://3.26.113.237:8080";
+export const base = "https://chat-backend-tan-mu.vercel.app";
