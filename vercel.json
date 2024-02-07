@@ -2,7 +2,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "http://13.239.27.154:8080",
+      "dest": "http://13.239.27.154:8080/api/$1",
       "methods": ["GET", "POST", "PUT", "DELETE"]
     }
   ]
