@@ -34,7 +34,7 @@ const Login = () => {
     }
   };
   if (cookies.get("token")) {
-    return <Navigate to="/posts"></Navigate>;
+    return <Navigate to="/users"></Navigate>;
   }
 
   return (

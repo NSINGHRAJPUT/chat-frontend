@@ -6,7 +6,7 @@ function Home() {
   const cookies = new Cookies();
 
   if (cookies.get("token")) {
-    return <Navigate to="/posts"></Navigate>;
+    return <Navigate to="/users"></Navigate>;
   }
   return (
     <div className="h-[100vh] w-full flex flex-col text-white justify-between items-center bg-gradient-to-b from-[#10162843] to-[#2c872d]">
